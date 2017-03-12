@@ -1,0 +1,47 @@
+.panel #body *{
+    min-width:20px;
+    min-height:20px;
+    background-color: beige;
+}
+.left_panel{
+    vertical-align: top;
+    width:15%;
+    margin-right: 10px;
+    height:100%;
+    border: solid 3px green;
+    display: inline-block;
+}
+.right_panel{
+    vertical-align: top;
+    width:15%;
+    margin-left: 10px;
+    height:100%;
+    border: solid 3px blue;
+    display: inline-block;
+
+}
+.panel{
+    vertical-align: top;
+    border: solid 3px gray;
+    width:65%;
+    height:100%;
+    display: inline-block;
+
+}
+
+.panel #body{
+    border: solid 3px red;
+    margin: 50px auto 50px;
+    width:90%;
+    height:100%;
+}
+.block_menu .block_menu_content .tag{
+    cursor: pointer;
+    margin-top: 5px;
+}
+#breadcrumbs span{
+    cursor: pointer;
+}
+.panel #body.alx_active{
+    border: solid 5px yellow;
+}

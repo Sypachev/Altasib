@@ -1,0 +1,3 @@
+$(function(){
+    app = new App();
+});
