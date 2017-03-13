@@ -22,10 +22,10 @@ class App{
             "h",
             "img",
         ];
-        this.leftMenu = new LeftMenu($(".left_panel"),"Тэги", itemsMenu);
-        this.breacrumbs = new Breadcrumbs($(".panel"));
-        this.header = new Header($(".panel"));
-        this.body = new Body($(".panel"));
+        this.leftMenu = new LeftMenu($(".left_panel"),"Тэги", itemsMenu, snipets);
+        this.breacrumbs = new Breadcrumbs($(".breadcrumbs"));
+        this.header = new Header($(".header"));
+        this.body = new Body($("body"));
         this.propMenu = new PropMenu($(".right_panel"),"Атрибуты");
     }
     disableSelection (tag) {

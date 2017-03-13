@@ -11,20 +11,24 @@ class DomElement{
     }
 
     addItem(dragObj){
-        let _this = this;
-        let tagName = dragObj.data("tag");
-        this.tagName = tagName;
-        let tagObj = document.createElement(tagName);
-        this.obj = tagObj;
-        this.parent.append(tagObj);
-        $(tagObj).on("dblclick", function(){
-            app.breacrumbs.addItem(tagName,false);
-        });
-        $(tagObj).on("click", function(){
-            app.activeElement = $(this);
-            app.activeElementObj = _this;
-            app.propMenu.reDraw();
-        });
+        if(!!dragObj.data("snipet")){
+            this.parent.append(dragObj.data("snipet").content);
+        }else {
+            let _this = this;
+            let tagName = dragObj.data("tag");
+            this.tagName = tagName;
+            let tagObj = document.createElement(tagName);
+            this.obj = tagObj;
+            this.parent.append(tagObj);
+            $(tagObj).on("dblclick", function () {
+                app.breacrumbs.addItem(tagName, false);
+            });
+            $(tagObj).on("click", function () {
+                app.activeElement = $(this);
+                app.activeElementObj = _this;
+                app.propMenu.reDraw();
+            });
+        }
     }
 
     reDraw(){

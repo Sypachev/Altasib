@@ -1,5 +1,4 @@
 class Breadcrumbs{
-    
     constructor(parent){
         this.parent = parent;
         this.items = [];
