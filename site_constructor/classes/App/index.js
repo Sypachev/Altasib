@@ -10,11 +10,11 @@ class App{
         this.header = false;
         this.body = false;
         this.propMenu = false;
+        this.drag = false;
         this.init();
     }
 
     init(){
-        this.disableSelection($("body"));
         console.log("init");
         let itemsMenu = [
             "div",
@@ -22,16 +22,11 @@ class App{
             "h",
             "img",
         ];
-        this.leftMenu = new LeftMenu($(".left_panel"),"Тэги", itemsMenu, snipets);
+        this.leftMenu = new LeftMenu();
         this.breacrumbs = new Breadcrumbs($(".breadcrumbs"));
         this.header = new Header($(".header"));
         this.body = new Body($("body"));
         this.propMenu = new PropMenu($(".right_panel"),"Атрибуты");
-    }
-    disableSelection (tag) {
-        return tag.bind( ( $.support.selectstart ? "selectstart" : "mousedown" ) +
-            ".ui-disableSelection", function( event ) {
-            event.preventDefault();
-        });
+        this.drag = new Drag();
     }
 };
