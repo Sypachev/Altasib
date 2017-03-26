@@ -1,5 +1,6 @@
 class LeftMenu{
     constructor(){
+        this.counter = 0;
         this.parent = false;
         this.title = "Μενώ";
         this.snipets = snipets;
@@ -22,9 +23,10 @@ class LeftMenu{
         this.snipets.forEach(item => this.buildSnipet(item));
     }
     buildSnipet(snipet){
+        if(this.hasSnipet(snipet)) return;
         let _this = this;
         $(this.parent).find(".block_menu_content").append('<div ' +
-            'id="menu_item_'+$(this.parent).find(".block_menu_content .tag").length+'" ' +
+            'id="menu_item_'+this.counter+'" ' +
             'ondragstart="return app.drag.dragStart(event);" ' +
             'draggable="true" ' +
             'class="tag">' +
@@ -32,6 +34,18 @@ class LeftMenu{
             '</div>');
         let item = $(this.parent).find(".block_menu_content .tag:last-child");
         item.data("snipet", snipet);
+        this.counter++;
+    }
+    hasSnipet(snipet){
+        var res = false;
+        $("#menu_container *").each(function(){
+            var data = $(this).data("snipet");
+            if(data.name == snipet.name){
+                res = true;
+                return true;
+            }
+        });
+        return res;
     }
 }
 

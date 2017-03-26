@@ -47,6 +47,15 @@ class Drag{
         let isContainer = $(ev.target).hasClass("container");
         if(isContainer){
             ev.target.appendChild(document.getElementById(data));
+            
+            app.leftMenu.buildSnipet($(this.dragEl).data("snipet"))
+            
+            app.activeElementObj = this.dragEl;
+            app.propMenu.reDraw();
+            $(this.dragEl).on("click",function(){
+                app.activeElementObj = this;
+                app.propMenu.reDraw();
+            });
         }
 
         ev.stopPropagation();

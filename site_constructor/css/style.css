@@ -1,14 +1,14 @@
-/*#body *{*/
-    /*min-width:20px;*/
-    /*min-height:20px;*/
-    /*background-color: beige;*/
-/*}*/
+#body .container *{
+    min-width:20px;
+    min-height:20px;
+    background-color: beige;
+}
 
 #left_panel{
     position: absolute;
     left: 0px;
     top: 50%;
-    min-width:100px;
+    min-width:200px;
     border: solid 3px green;
     display: inline-block;
 }
@@ -16,6 +16,7 @@
     position: absolute;
     right: 0px;
     top: 50%;
+    min-width:200px;
     border: solid 3px blue;
     display: inline-block;
 
@@ -46,4 +47,8 @@
 }
 .container{
     min-height: 400px;
+}
+
+.block_menu_content input[type="text"]{
+    width:50px;
 }
