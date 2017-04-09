@@ -1,6 +1,15 @@
 class Drag{
     constructor(){
-        this.dragEl = false;
+        let that = this;
+        $( ".alx_drag_container" ).sortable({
+            connectWith: ".alx_drag_container",
+            update: function( event, ui ) {
+                console.log(event);
+                console.log(ui);
+                that.dropUi(ui);
+            }
+        });
+        //this.dragEl = false;
     }
 
     dragStart(ev) {
@@ -60,6 +69,21 @@ class Drag{
 
         ev.stopPropagation();
         return false;
+    }
+    dropUi(ui){
+        if(ui.sender !== null){
+            if(ui.sender[0].id == "menu_container"){
+
+                app.activeElementObj = ui.item[0];
+                app.propMenu.reDraw();
+                $(app.activeElementObj).on("click",function(){
+                    app.activeElementObj = this;
+                    app.propMenu.reDraw();
+                });
+                app.leftMenu.buildSnipet($(ui.item[0]).data("snipet"))
+            }
+        }
+
     }
 }
 
